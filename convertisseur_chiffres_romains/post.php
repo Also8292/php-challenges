@@ -1,11 +1,13 @@
 <?php
 
+//
 if(isset($_GET['chiffre'])) {
     $chiffre = $_GET['chiffre'];
 
    echo conversion_romain($chiffre);
 }
 
+//fonction de conversion
 function conversion_romain($chiffre)
 {
     $chiffresRomains = array( 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I');
