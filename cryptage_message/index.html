@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message crypté</title>
+</head>
+<body style="text-align: center">
+    <form action="" method="post">
+        <textarea name="message_crypte" id="message_crypte" placeholder="Entrez ici votre message crypté" style="width: 500px; height: 200px; resize: vertical; max-height: 500px; min-height: 100px;" onkeyup="decryptMessage()"></textarea>
+    </form>
+    <h3>Message décrypté : </h3>
+    <p id="message_decrypte"></p>
+
+    <script>
+        function decryptMessage() {
+            let messageCrypte = document.querySelector('#message_crypte').value;
+            messageDecrypte = "";
+            var caractere = "";
+            for(var i = 0; i < messageCrypte.length; i++) {
+                caractere = messageCrypte.charAt(i);
+                if(caractere == caractere.toUpperCase() && caractere != " ") {
+                    if(caractere == ".") {
+                        caractere = " ";
+                    }
+                    messageDecrypte = messageDecrypte + "" +caractere;
+                }
+            }
+            document.querySelector('#message_decrypte').innerHTML = messageDecrypte;
+            
+        }
+    </script>
+</body>
+</html>
