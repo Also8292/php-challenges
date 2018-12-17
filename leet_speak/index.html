@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeur-Decodeur de Message</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="text-align: center">
+    
+    <div class="row" style="padding: 20px;">
+        <div class="col-md-5">
+            <h2>Texte</h2>
+            <form action="" method="post">
+                <textarea name="texte" id="texte" placeholder="Entrez ici votre texte" style="width: 500px; height: 200px; resize: vertical; max-height: 500px; min-height: 100px;" onkeyup="crypteMessage()"></textarea>
+            </form>
+        </div>
+
+        <div class="col-md-2" style="font-size: 50px; top: 90px">&#x2194;</div>
+
+        <div class="col-md-5">
+            <h2>Texte encodé</h2>
+            <form action="" method="post">
+                <textarea name="texte_crypte" id="texte_crypte" placeholder="" style="width: 500px; height: 200px; resize: vertical; max-height: 500px; min-height: 100px;" ></textarea>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelector("#texte_crypte").readOnly = true;
+
+        function crypteMessage() {
+            let texte = document.querySelector("#texte").value;
+            let texteEncode = document.querySelector("#texte_crypte");
+
+            var lettres = {'A' : '4', 'B' : '8', 'E' : '3', 'G' : '6', 'I' : '1', 'O' : '0', 'S' : '5', 'T' : '7', 'Z' : '2'};
+            let texte_code = "";
+            for(let i = 0; i < texte.length; i++) {
+                for(let j = 0; j < lettres.length; j++) {
+                    if(texte[i] == lettres[j]) {
+                        texte_code = texte_code + lettres[j];
+                    }
+                }
+            }
+           
+        
+            texteEncode.innerText = lettres['A'];
+            
+        }
+    </script>
+</body>
+</html>
