@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Identifiant de doublons</title>
+</head>
+<body style="text-align: center">
+    <h1>Où sont les doublons ?</h1>
+    <form action="" method="post">
+        <textarea name="" id="text" placeholder="Entrez votre texte " style="width: 300px; height: 200px; resize: vertical; max-height: 300px; min-height: 200px;"></textarea>
+        <textarea name="" id="resultat" placeholder="Resultat " style="width: 300px; height: 200px; resize: vertical; max-height: 300px; min-height: 200px;" disabled></textarea>
+        <br><br>
+        <input type="button" value="Trouver les doublons" onclick="doublons()">
+    </form>
+    <p id="count"></p>
+
+    <script>
+        function doublons() {
+            var text = document.querySelector('#text').value;
+            var resultat = document.querySelector('#resultat');
+
+            var text_array = text.split(' ');
+
+            var doublon = "";
+            var count = 0;
+
+            for(var i = 0; i < text_array.length; i++) {
+                for(var j = i + 1; j < text_array.length; j++) {
+                    if(i != j && text_array[i] == text_array[j]) {
+                        
+                        doublon = doublon + text_array[i] + " ";
+                        count++;
+                    }  
+                }
+            }
+            document.querySelector('#count').innerText = "Repetition : " + count;
+            resultat.innerText =  doublon  ;
+        }
+    </script>
+</body>
+</html>
